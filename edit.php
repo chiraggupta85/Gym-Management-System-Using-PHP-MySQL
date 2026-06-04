@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// 🔐 Login check
 if(!isset($_SESSION['user'])){
     header("Location: login.php");
     exit();
@@ -13,7 +12,6 @@ if (!$conn) {
     die("Connection Failed");
 }
 
-// Check ID
 if(isset($_GET['id'])){
     $id = intval($_GET['id']);
 
@@ -23,10 +21,10 @@ if(isset($_GET['id'])){
     if(mysqli_num_rows($result) > 0){
         $row = mysqli_fetch_assoc($result);
     } else {
-        die("User not found ❌");
+        die("User not found ");
     }
 } else {
-    die("Invalid Request ❌");
+    die("Invalid Request ");
 }
 ?>
 
