@@ -130,7 +130,7 @@ if(isset($_SESSION['user'])){
 
     <!-- Hero -->
     <section class="hero">
-        <h1>Build Your Body 💪</h1>
+        <h1>Build Your Body </h1>
         <p>Join the best gym and stay fit</p>
         <button>Join Now</button>
     </section>
