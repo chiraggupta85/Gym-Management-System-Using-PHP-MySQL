@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// Already login redirect
 if(isset($_SESSION['user'])){
 
     if($_SESSION['role'] == 'admin'){
@@ -161,7 +160,7 @@ if(isset($_SESSION['user'])){
 <div class="login-box">
 
     <div class="gym-icon">
-        💪
+        
     </div>
 
     <h1>
