@@ -1,18 +1,15 @@
 <?php
 session_start();
 
-// 🔐 User only
 if(!isset($_SESSION['user']) || $_SESSION['role'] != 'user'){
     header("Location: login.php");
     exit();
 }
 
-// DB Connection
 $conn = mysqli_connect("localhost", "root", "", "gym_db");
 
 $email = $_SESSION['user'];
 
-// User Data
 $query = "SELECT * FROM members WHERE email='$email'";
 
 $result = mysqli_query($conn, $query);
@@ -177,13 +174,13 @@ $data = mysqli_fetch_assoc($result);
     <!-- PROFILE ICON -->
 
     <div class="profile">
-        👤
+        
     </div>
 
     <!-- USER NAME -->
 
     <h2>
-        Welcome <?php echo $data['name']; ?> 👋
+        Welcome <?php echo $data['name']; ?> 
     </h2>
 
     <!-- ROLE -->
