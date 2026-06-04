@@ -18,13 +18,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $plan  = $_POST['plan'];
 
 
-
-    /*
-    -----------------------------------
-    🔍 CHECK DUPLICATE USERNAME
-    -----------------------------------
-    */
-
     $check = "SELECT * FROM members WHERE username='$username'";
 
     $result = mysqli_query($conn, $check);
@@ -37,13 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 
-
-    /*
-    -----------------------------------
-     INSERT DATA
-    -----------------------------------
-    */
-
     $sql = "INSERT INTO members
             (username, password, name, email, phone, plan)
 
@@ -51,17 +37,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             ('$username', '$password', '$name', '$email', '$phone', '$plan')";
 
-
-
-    /*
-    -----------------------------------
-     INSERT SUCCESS
-    -----------------------------------
-    */
-
     if(mysqli_query($conn, $sql)){
 
-        // Redirect to login page
+
         header("Location: login.php");
         exit();
 
@@ -70,14 +48,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error: " . mysqli_error($conn);
 
     }
-
-
-
-    /*
-    -----------------------------------
-    🔚 CLOSE CONNECTION
-    -----------------------------------
-    */
 
     mysqli_close($conn);
 
