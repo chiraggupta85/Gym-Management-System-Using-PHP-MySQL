@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-// 🔐 Login check
 if(!isset($_SESSION['user'])){
     header("Location: login.php");
     exit();
@@ -13,7 +12,6 @@ if (!$conn) {
     die("Connection Failed");
 }
 
-// Check ID
 if(isset($_GET['id'])){
 
     $id = intval($_GET['id']);
@@ -24,10 +22,10 @@ if(isset($_GET['id'])){
         header("Location: display.php");
         exit();
     } else {
-        echo "Delete Failed ❌";
+        echo "Delete Failed ";
     }
 
 } else {
-    echo "Invalid Request ❌";
+    echo "Invalid Request ";
 }
 ?>
