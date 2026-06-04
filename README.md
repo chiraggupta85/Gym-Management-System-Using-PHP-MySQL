@@ -38,7 +38,7 @@ A full-stack Gym Management System built using PHP and MySQL.
 4. Move project folder to htdocs
 5. Run: 
 
-http://localhost/gym
+http://localhost/gym.php
 
 ---
 
