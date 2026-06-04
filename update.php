@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-// 🔐 Login check
+
 if(!isset($_SESSION['user'])){
     header("Location: login.php");
     exit();
@@ -13,7 +13,6 @@ if (!$conn) {
     die("Connection Failed");
 }
 
-// Check POST
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     $id = intval($_POST['id']);
@@ -22,7 +21,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     $phone = $_POST['phone'];
     $plan = $_POST['plan'];
 
-    // ✅ Correct query
+    
     $query = "UPDATE members SET 
                 name='$name',
                 email='$email',
@@ -34,10 +33,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         header("Location: display.php");
         exit();
     } else {
-        echo "Update Failed ❌";
+        echo "Update Failed ";
     }
 
 } else {
-    echo "Invalid Request ❌";
+    echo "Invalid Request ";
 }
 ?>
