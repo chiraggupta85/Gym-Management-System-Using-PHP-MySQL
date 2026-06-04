@@ -12,11 +12,7 @@ if(!$conn){
     die("Connection Failed");
 }
 
-/*
------------------------------------
- SEARCH FEATURE
------------------------------------
-*/
+
 
 if(isset($_GET['search']) && $_GET['search'] != ""){
 
@@ -33,44 +29,26 @@ if(isset($_GET['search']) && $_GET['search'] != ""){
 
 $result = mysqli_query($conn, $query);
 
-
-/*
------------------------------------
- DASHBOARD COUNTS
------------------------------------
-*/
-
-// 👥 Total Members
 $totalMembersQuery = "SELECT COUNT(*) AS total FROM members";
 $totalMembersResult = mysqli_query($conn, $totalMembersQuery);
 $totalMembers = mysqli_fetch_assoc($totalMembersResult)['total'];
 
-
-// 👑 Total Admins
 $totalAdminsQuery = "SELECT COUNT(*) AS total FROM members WHERE role='admin'";
 $totalAdminsResult = mysqli_query($conn, $totalAdminsQuery);
 $totalAdmins = mysqli_fetch_assoc($totalAdminsResult)['total'];
 
-
-// 🏋️ Total Trainers
 $trainerQuery = "SELECT COUNT(*) AS total FROM members WHERE role='trainer'";
 $trainerResult = mysqli_query($conn, $trainerQuery);
 $trainers = mysqli_fetch_assoc($trainerResult)['total'];
 
-
-// 💎 Premium Users
 $premiumQuery = "SELECT COUNT(*) AS total FROM members WHERE plan='Premium'";
 $premiumResult = mysqli_query($conn, $premiumQuery);
 $premiumUsers = mysqli_fetch_assoc($premiumResult)['total'];
 
-
-// 🟡 Basic Users
 $basicQuery = "SELECT COUNT(*) AS total FROM members WHERE plan='Basic'";
 $basicResult = mysqli_query($conn, $basicQuery);
 $basicUsers = mysqli_fetch_assoc($basicResult)['total'];
 
-
-// ⚫ Standard Users
 $standardQuery = "SELECT COUNT(*) AS total FROM members WHERE plan='Standard'";
 $standardResult = mysqli_query($conn, $standardQuery);
 $standardUsers = mysqli_fetch_assoc($standardResult)['total'];
@@ -364,7 +342,7 @@ $standardUsers = mysqli_fetch_assoc($standardResult)['total'];
     <div class="top">
 
         <h2>
-            Welcome Admin 👑
+            Welcome Admin 
         </h2>
 
         <a class="logout" href="logout.php">
