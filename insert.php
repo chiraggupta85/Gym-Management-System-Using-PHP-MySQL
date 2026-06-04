@@ -1,20 +1,15 @@
 <?php
 
-// Form submit check
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    // Database connection
     $conn = mysqli_connect("localhost", "root", "", "gym_db");
 
-    // Connection check
     if (!$conn) {
         die("Connection Failed: " . mysqli_connect_error());
     }
 
-    // Form data
     $username = $_POST['username'];
 
-    // Password hash
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
     $name  = $_POST['name'];
@@ -36,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if(mysqli_num_rows($result) > 0){
 
-        echo "Username Already Exists ❌";
+        echo "Username Already Exists ";
         exit();
 
     }
@@ -45,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     /*
     -----------------------------------
-    📝 INSERT DATA
+     INSERT DATA
     -----------------------------------
     */
 
@@ -60,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     /*
     -----------------------------------
-    ✅ INSERT SUCCESS
+     INSERT SUCCESS
     -----------------------------------
     */
 
@@ -88,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 }else{
 
-    echo "Access Denied ❌";
+    echo "Access Denied ";
 
 }
 
