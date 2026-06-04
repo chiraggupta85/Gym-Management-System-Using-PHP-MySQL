@@ -21,29 +21,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if (password_verify($password, $row['password'])) {
 
-            // ✅ Session set
             $_SESSION['user'] = $email;
             $_SESSION['role'] = $row['role'];
 
-            // 🎯 Role check
             if ($row['role'] == 'admin') {
 
-                echo "<h2>Admin Login Successful 👑</h2>";
+                echo "<h2>Admin Login Successful </h2>";
                 header("refresh:2;url=display.php");
 
             } else {
 
-                echo "<h2>User Login Successful 👤</h2>";
+                echo "<h2>User Login Successful </h2>";
                 header("refresh:2;url=dashboard.php");
 
             }
 
         } else {
-            echo "<h3>Wrong Password ❌</h3>";
+            echo "<h3>Wrong Password </h3>";
         }
 
     } else {
-        echo "<h3>User Not Found ❌</h3>";
+        echo "<h3>User Not Found </h3>";
     }
 }
 ?>
