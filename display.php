@@ -1,13 +1,11 @@
 <?php
 session_start();
 
-// 🔐 Only admin allowed
 if(!isset($_SESSION['user']) || $_SESSION['role'] != 'admin'){
     header("Location: login.php");
     exit();
 }
 
-// DB Connection
 $conn = mysqli_connect("localhost", "root", "", "gym_db");
 
 if(!$conn){
@@ -16,7 +14,7 @@ if(!$conn){
 
 /*
 -----------------------------------
-🔍 SEARCH FEATURE
+ SEARCH FEATURE
 -----------------------------------
 */
 
@@ -38,7 +36,7 @@ $result = mysqli_query($conn, $query);
 
 /*
 -----------------------------------
-📊 DASHBOARD COUNTS
+ DASHBOARD COUNTS
 -----------------------------------
 */
 
